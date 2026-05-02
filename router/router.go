@@ -80,6 +80,10 @@ func Configure(m *wserver.Manager, client remote.Client) *gin.Engine {
 		server.POST("/sync", postServerSync)
 		server.POST("/ws/deny", postServerDenyWSTokens)
 
+		// PlaySafe hibernation hooks. Real implementation arrives in Phase 4.
+		server.POST("/hibernate", postServerHibernate)
+		server.POST("/wake", postServerWake)
+
 		// This archive request causes the archive to start being created
 		// this should only be triggered by the panel.
 		server.POST("/transfer", postServerTransfer)
