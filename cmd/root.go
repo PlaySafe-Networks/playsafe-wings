@@ -448,9 +448,9 @@ PlaySafe Wings (fork of pterodactyl/wings)
 Copyright (c) 2018 - %d Dane Everitt & Contributors (upstream)
 Copyright (c) %d PlaySafe Software (fork modifications)
 
-  Source:  https://github.com/Pablosatorre/playsafe-wings
+  Source:  https://github.com/PlaySafe-Networks/playsafe-wings
 Upstream:  https://github.com/pterodactyl/wings
- License:  https://github.com/Pablosatorre/playsafe-wings/blob/main/LICENSE
+ License:  https://github.com/PlaySafe-Networks/playsafe-wings/blob/main/LICENSE
 
 This software is made available under the terms of the MIT license.
 The above copyright notice and this permission notice shall be included
