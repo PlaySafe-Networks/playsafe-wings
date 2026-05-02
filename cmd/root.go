@@ -63,7 +63,7 @@ var versionCommand = &cobra.Command{
 	Use:   "version",
 	Short: "Prints the current executable version and exits.",
 	Run: func(cmd *cobra.Command, _ []string) {
-		fmt.Printf("wings v%s\nCopyright © 2018 - %d Dane Everitt & Contributors\n", system.Version, time.Now().Year())
+		fmt.Printf("PlaySafe Wings v%s (fork of pterodactyl/wings)\nCopyright (c) 2018 - %d Dane Everitt & Contributors (upstream)\nCopyright (c) %d PlaySafe Software (fork modifications)\n", system.Version, time.Now().Year(), time.Now().Year())
 	},
 }
 
@@ -437,21 +437,24 @@ func initLogging() {
 func printLogo() {
 	fmt.Printf(colorstring.Color(`
                      ____
-__ [blue][bold]Pterodactyl[reset] _____/___/_______ _______ ______
+__ [cyan][bold]PlaySafe[reset]    _____/___/_______ _______ ______
 \_____\    \/\/    /   /       /  __   /   ___/
    \___\          /   /   /   /  /_/  /___   /
         \___/\___/___/___/___/___    /______/
                             /_______/ [bold]%s[reset]
 
-Copyright © 2018 - %d Dane Everitt & Contributors
+PlaySafe Wings (fork of pterodactyl/wings)
 
-Website:  https://pterodactyl.io
- Source:  https://github.com/pterodactyl/wings
-License:  https://github.com/pterodactyl/wings/blob/develop/LICENSE
+Copyright (c) 2018 - %d Dane Everitt & Contributors (upstream)
+Copyright (c) %d PlaySafe Software (fork modifications)
+
+  Source:  https://github.com/Pablosatorre/playsafe-wings
+Upstream:  https://github.com/pterodactyl/wings
+ License:  https://github.com/Pablosatorre/playsafe-wings/blob/main/LICENSE
 
 This software is made available under the terms of the MIT license.
 The above copyright notice and this permission notice shall be included
-in all copies or substantial portions of the Software.%s`), system.Version, time.Now().Year(), "\n\n")
+in all copies or substantial portions of the Software.%s`), system.Version, time.Now().Year(), time.Now().Year(), "\n\n")
 }
 
 func exitWithConfigurationNotice() {
