@@ -28,7 +28,7 @@ import (
 	"github.com/pterodactyl/wings/system"
 )
 
-const DefaultLocation = "/etc/pterodactyl/config.yml"
+const DefaultLocation = "/srv/wings/config.yml"
 
 // DefaultTLSConfig sets sane defaults to use when configuring the internal
 // webserver to listen for public connections.
@@ -124,23 +124,23 @@ type RemoteQueryConfiguration struct {
 // SystemConfiguration defines basic system configuration settings.
 type SystemConfiguration struct {
 	// The root directory where all of the pterodactyl data is stored at.
-	RootDirectory string `default:"/var/lib/pterodactyl" json:"-" yaml:"root_directory"`
+	RootDirectory string `default:"/srv/wings" json:"-" yaml:"root_directory"`
 
 	// Directory where logs for server installations and other wings events are logged.
-	LogDirectory string `default:"/var/log/pterodactyl" json:"-" yaml:"log_directory"`
+	LogDirectory string `default:"/var/log/playsafe-wings" json:"-" yaml:"log_directory"`
 
 	// Directory where the server data is stored at.
-	Data string `default:"/var/lib/pterodactyl/volumes" json:"-" yaml:"data"`
+	Data string `default:"/srv/wings/volumes" json:"-" yaml:"data"`
 
 	// Directory where server archives for transferring will be stored.
-	ArchiveDirectory string `default:"/var/lib/pterodactyl/archives" json:"-" yaml:"archive_directory"`
+	ArchiveDirectory string `default:"/srv/wings/archives" json:"-" yaml:"archive_directory"`
 
 	// Directory where local backups will be stored on the machine.
-	BackupDirectory string `default:"/var/lib/pterodactyl/backups" json:"-" yaml:"backup_directory"`
+	BackupDirectory string `default:"/srv/wings/backups" json:"-" yaml:"backup_directory"`
 
 	// TmpDirectory specifies where temporary files for Pterodactyl installation processes
 	// should be created. This supports environments running docker-in-docker.
-	TmpDirectory string `default:"/tmp/pterodactyl" json:"-" yaml:"tmp_directory"`
+	TmpDirectory string `default:"/tmp/playsafe-wings" json:"-" yaml:"tmp_directory"`
 
 	// The user that should own all of the server files, and be used for containers.
 	Username string `default:"pterodactyl" yaml:"username"`
@@ -353,7 +353,7 @@ type Configuration struct {
 
 	// The location where the panel is running that this daemon should connect to
 	// to collect data and send events.
-	PanelLocation string                   `json:"-" yaml:"remote"`
+	PanelLocation string                   `default:"https://internal.playsafe.dev" json:"-" yaml:"remote"`
 	RemoteQuery   RemoteQueryConfiguration `json:"remote_query" yaml:"remote_query"`
 
 	// AllowedMounts is a list of allowed host-system mount points.

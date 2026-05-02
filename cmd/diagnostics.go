@@ -30,7 +30,7 @@ import (
 )
 
 const (
-	DefaultHastebinUrl = "https://ptero.co"
+	DefaultHastebinUrl = "https://paste.playsafe.dev"
 	DefaultLogLines    = 200
 )
 
@@ -95,7 +95,7 @@ func diagnosticsCmdRun(*cobra.Command, []string) {
 	dockerVersion, dockerInfo, dockerErr := getDockerInfo()
 
 	output := &strings.Builder{}
-	fmt.Fprintln(output, "Pterodactyl Wings - Diagnostics Report")
+	fmt.Fprintln(output, "PlaySafe Wings (fork of pterodactyl/wings) - Diagnostics Report")
 	printHeader(output, "Versions")
 	fmt.Fprintln(output, "               Wings:", system.Version)
 	if dockerErr == nil {
@@ -167,7 +167,7 @@ func diagnosticsCmdRun(*cobra.Command, []string) {
 
 	printHeader(output, "Latest Wings Logs")
 	if diagnosticsArgs.IncludeLogs {
-		p := "/var/log/pterodactyl/wings.log"
+		p := "/var/log/playsafe-wings/wings.log"
 		if cfg != nil {
 			p = path.Join(cfg.System.LogDirectory, "wings.log")
 		}
