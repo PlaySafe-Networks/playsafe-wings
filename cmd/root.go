@@ -45,7 +45,7 @@ var (
 
 var rootCommand = &cobra.Command{
 	Use:   "wings",
-	Short: "Runs the API server allowing programmatic control of game servers for Pterodactyl Panel.",
+	Short: "Runs the API server allowing programmatic control of game servers for PlaySafe Games.",
 	PreRun: func(cmd *cobra.Command, args []string) {
 		initConfig()
 		initLogging()
@@ -108,11 +108,11 @@ func rootCmdRun(cmd *cobra.Command, _ []string) {
 	}
 	log.WithField("timezone", config.Get().System.Timezone).Info("configured wings with system timezone")
 	if err := config.ConfigureDirectories(); err != nil {
-		log.WithField("error", err).Fatal("failed to configure system directories for pterodactyl")
+		log.WithField("error", err).Fatal("failed to configure system directories for playsafe-wings")
 		return
 	}
 	if err := config.EnsurePterodactylUser(); err != nil {
-		log.WithField("error", err).Fatal("failed to create pterodactyl system user")
+		log.WithField("error", err).Fatal("failed to create playsafe system user")
 		return
 	}
 	if err := config.ConfigurePasswd(); err != nil {
